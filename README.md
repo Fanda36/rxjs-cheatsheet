@@ -22,7 +22,7 @@ const series$ = of(1, 2, 2, 1, 3, 3, 1)
 Emits a (**first**) value from the source Observable, then ignores subsequent source values for duration milliseconds, then repeats this process.
 ### similar to
 - [sampleTime](https://rxjs.dev/api/operators/sampleTime) - emit **last** value from interval
-- [debounceTime](https://rxjs.dev/api/operators/debounceTime) - emit **last** value from interval and delay it
+- [debounceTime](https://rxjs.dev/api/operators/debounceTime) - emit **last** value from interval and delay it. Intrval counter start after first value income - it is good for autocomplete where we can assume after key down will be next key down event
 
 # Higher-Order Observable
 

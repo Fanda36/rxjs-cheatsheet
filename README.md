@@ -1,6 +1,29 @@
 # rxjs-cheatsheet
 Cheatsheet for RxJS
 
+# Usefull operators
+
+## [distinctUntilChanged()](https://rxjs.dev/api/operators/distinctUntilChanged)
+Filter values if are same.
+
+```typescript
+const series$ = of(1, 2, 2, 1, 3, 3, 1)
+  .pipe(distinctUntilChanged())
+  .subscribe(console.log);
+// prints
+// 1
+// 2
+// 1
+// 3
+// 1
+```
+
+## [throttleTime()](https://rxjs.dev/api/operators/throttleTime)
+Emits a (**first**) value from the source Observable, then ignores subsequent source values for duration milliseconds, then repeats this process.
+### similar to
+- [sampleTime](https://rxjs.dev/api/operators/sampleTime) - emit **last** value from interval
+- [debounceTime](https://rxjs.dev/api/operators/debounceTime) - emit **last** value from interval and delay it
+
 # Higher-Order Observable
 
 Generally, it is observable which returns observables. For examle, 

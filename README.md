@@ -118,3 +118,27 @@ Takes data from first observable, next observable is subscribed only if no other
 ### Use cases
 - user can order only if the previous order was finished
 
+
+
+# Examples
+## Search (autocomplete etc.)
+```typescript
+ngAfterViewInit() {
+  const search$ = fromEvent(this.input.nativeElement, "keyup").pipe(
+    map((event: any) => event.target.value), // event -> current input value
+    debounceTime(200), // emit last value after 200 ms when user press keybord
+    distinctUntilChanged(), // ignore same input value to keep server traffic low
+    switchMap((search) => this.loadLessons(search)) // auto cancel request if new search
+  );
+  
+  const init$ = this.loadLessons();
+
+  this.lessons$ = concat(init$, search$); // after component is loaded init data
+}
+
+loadLessons(search: string = "") {
+  return createHttpObservable(
+    `/api/lessons?courseId=${this.courseId}&pageSize=100&filter=${search}`
+  ).pipe(map((resp) => resp["payload"]));
+}
+```

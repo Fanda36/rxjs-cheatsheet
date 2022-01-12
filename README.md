@@ -22,6 +22,8 @@ result$.subscribe(console.log);
 // y
 ```
 
+> **_NOTE:_**  `of` create observable from given values
+
 ### Marble diagram:
 - 1st line is firt obsarveble
 - 2nd line is second obserbale

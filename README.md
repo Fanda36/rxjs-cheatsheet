@@ -58,3 +58,24 @@ result$.subscribe(console.log);
 
 ![image](https://user-images.githubusercontent.com/3972954/149123120-5a50fe24-7d4b-4c69-86a7-95b94c98a2c3.png)
 
+### Use cases
+
+- 
+  ![image](https://user-images.githubusercontent.com/3972954/149128611-a794be1a-a966-42e5-aaf9-9aa04faf8c9c.png)
+
+
+
+
+## Switching
+
+Takes data from first observable till new observable incomes. When new observable income, then old observable is unsubscribled.
+
+### Marble diagram
+
+![image](https://user-images.githubusercontent.com/3972954/149129364-4e6708bf-6c05-4919-85c1-b8d0c2a5cbc7.png)
+
+### Use cases
+- autocomplete 
+  ![image](https://user-images.githubusercontent.com/3972954/149129809-4f7af7f8-4c93-4d14-a125-3e57454fc914.png)
+
+

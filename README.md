@@ -79,3 +79,17 @@ Takes data from first observable till new observable incomes. When new observabl
   ![image](https://user-images.githubusercontent.com/3972954/149129809-4f7af7f8-4c93-4d14-a125-3e57454fc914.png)
 
 
+
+
+
+## Exhaust
+
+Takes data from first observable, next observable is subscribed only if no other subscribe is subscribed otherwise is canceled.
+
+### Marble diagram
+
+![image](https://user-images.githubusercontent.com/3972954/149130762-78b64853-b249-4a6b-80b1-b6d4fe273904.png)
+
+### Use cases
+- user can order only if the previous order was finished
+

@@ -1,6 +1,7 @@
 # rxjs-cheatsheet
 Cheatsheet for RxJS
 
+
 # Usefull operators
 
 ## [distinctUntilChanged()](https://rxjs.dev/api/operators/distinctUntilChanged)
@@ -117,6 +118,38 @@ Takes data from first observable, next observable is subscribed only if no other
 
 ### Use cases
 - user can order only if the previous order was finished
+
+
+# Error handling
+
+## Basic way
+```typescript
+of(1,2).subscribe(
+  (x)=>console.log("new data", x),
+  (error)=>console.log("error", error), // <--- if an observable instance returns an error, then it is terminated
+  ()=>console.log("completed")
+);
+```
+
+## Replace observable if error emited
+```typescript
+http$.pipe(
+  catchError((err) => {
+    console.log(err);
+    return of([]); // replace by a new observable with an empty array
+  })
+)
+```
+
+## Retry
+```typescript
+http$.pipe(
+  retryWhen((errors) =>
+    errors.pipe(
+      delayWhen((event) => interval(Math.random() * 5000)) // optionally - wait random time (0-5 sec) and then retry
+    )
+)
+```
 
 
 

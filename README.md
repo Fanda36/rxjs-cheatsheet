@@ -23,7 +23,7 @@ const series$ = of(1, 2, 2, 1, 3, 3, 1)
 Emits a (**first**) value from the source Observable, then ignores subsequent source values for duration milliseconds, then repeats this process.
 ### similar to
 - [sampleTime](https://rxjs.dev/api/operators/sampleTime) - emit **last** value from interval
-- [debounceTime](https://rxjs.dev/api/operators/debounceTime) - emit **last** value from interval and delay it. **Intrval counter start after last stream value income** - it is good for autocomplete where we can assume after key down will be next key down event.
+- [debounceTime](https://rxjs.dev/api/operators/debounceTime) - emit **last** value from interval and delay it. Wait till value is stable for defined time. **Intrval counter start after last stream value income** - it is good for autocomplete where we can assume after key down will be next key down event.
 
 ## [startWith()](https://rxjs.dev/api/operators/startWith)
 - init stream with given value (for example if you have search input you can emit empty search for get all data from server)

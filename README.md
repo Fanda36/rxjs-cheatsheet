@@ -136,7 +136,7 @@ of(1,2).subscribe(
 http$.pipe(
   catchError((err) => {
     console.log(err);
-    return of([]); // replace by a new observable with an empty array
+    return of([]); // replace error stream by a new stream with an empty array
   })
 )
 ```
@@ -146,7 +146,7 @@ http$.pipe(
 http$.pipe(
   retryWhen((errors) =>
     errors.pipe(
-      delayWhen((event) => interval(Math.random() * 5000)) // optionally - wait random time (0-5 sec) and then retry
+      delayWhen((event) => interval(Math.random() * 5000)) // optionally - replace error stream by same new stream 0 - 5 sec after error happened
     )
 )
 ```
